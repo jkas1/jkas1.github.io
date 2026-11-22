@@ -62,15 +62,15 @@ export function PortfolioPage() {
                   Five years turning design concepts and client requirements into responsive and accessible
                   websites, from Figma prototypes and custom WordPress themes to modern React applications.
                 </p>
-                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <div className="mt-8 flex flex-wrap justify-center gap-3 max-sm:mx-auto max-sm:w-full max-sm:max-w-[min(100%,19rem)] max-sm:flex-col max-sm:items-stretch">
                   <Link
-                    className="btn mono bg-ice px-6 py-3.5 text-[11px] font-medium tracking-[0.16em] text-bg uppercase hover:shadow-[var(--box-shadow-btn-glow)] sm:px-7 sm:py-4 sm:text-[12px]"
+                    className="btn mono max-sm:w-full max-sm:text-center bg-ice px-6 py-3.5 text-[11px] font-medium tracking-[0.16em] text-bg uppercase hover:shadow-[var(--box-shadow-btn-glow)] sm:px-7 sm:py-4 sm:text-[12px]"
                     href="#work"
                   >
                     See selected work
                   </Link>
                   <Link
-                    className="btn ghost mono border border-ice px-6 py-3.5 text-[11px] tracking-[0.16em] text-ice uppercase hover:bg-ice/15 hover:shadow-[var(--box-shadow-btn-glow)] sm:px-7 sm:py-4 sm:text-[12px]"
+                    className="btn ghost mono max-sm:w-full max-sm:text-center border border-ice px-6 py-3.5 text-[11px] tracking-[0.16em] text-ice uppercase hover:bg-ice/15 hover:shadow-[var(--box-shadow-btn-glow)] sm:px-7 sm:py-4 sm:text-[12px]"
                     href="#contact"
                   >
                     Get in touch

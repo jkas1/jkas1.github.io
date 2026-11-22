@@ -253,12 +253,21 @@ body {
 
 .nav-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 200;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100lvh;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: clamp(24px, 8vw, 48px);
+  padding-bottom: max(clamp(24px, 8vw, 48px), env(safe-area-inset-bottom, 0px));
   background:
     color-mix(in srgb, var(--color-bg) 34%, transparent),
     radial-gradient(900px 700px at 80% 6%, rgba(42, 35, 112, 0.55), transparent 70%),
@@ -363,14 +372,23 @@ body {
   body.nav-overlay-open {
     overflow: hidden;
     height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: 100lvh;
     overscroll-behavior: none;
   }
 
   body.nav-overlay-open .page-sky {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 199;
+    width: 100%;
+    min-height: 100vh;
     min-height: 100dvh;
+    min-height: 100lvh;
     --cloud-strength: 0.9;
   }
 
@@ -463,7 +481,7 @@ h3.disp,
 .hero-title {
   @apply m-0 leading-[0.9] tracking-[-0.01em] text-ink;
   font-family: var(--font-display);
-  font-size: clamp(42px, 11vw, 110px);
+  font-size: clamp(50px, 13vw, 112px);
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -472,7 +490,7 @@ h3.disp,
   margin: 0;
   margin-top: clamp(8px, 1.6vw, 20px);
   font-family: var(--font-script);
-  font-size: clamp(40px, 5.4vw, 84px);
+  font-size: clamp(48px, 7.75vw, 84px);
   line-height: 1;
   font-weight: 400;
   text-transform: none;
@@ -487,31 +505,10 @@ h3.disp,
 .section-title,
 .section-heading,
 .contact-title {
-  @apply m-0 text-[clamp(32px,6vw,90px)] leading-[0.96] tracking-[-0.01em] text-ink;
+  @apply m-0 text-[clamp(42px,8.5vw,90px)] leading-[0.96] tracking-[-0.01em] text-ink;
   font-family: var(--font-display);
   font-weight: 400;
   text-transform: uppercase;
-}
-
-/* Tablet + phone: section titles read larger (desktop `lg:` unchanged). */
-@media (max-width: 1024px) {
-  .section-title,
-  .section-heading,
-  .contact-title {
-    font-size: clamp(42px, 8.5vw, 90px);
-  }
-
-  .hero-title {
-    font-size: clamp(52px, 13vw, 112px);
-  }
-
-  .hero-role {
-    font-size: clamp(48px, 7.75vw, 84px);
-  }
-
-  #work .work-title {
-    font-size: clamp(36px, 5.75vw, 48px);
-  }
 }
 
 .experience-index {
@@ -943,7 +940,7 @@ h3.disp,
 
 #work .work-title {
   margin: 0;
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(36px, 4vw, 48px);
   line-height: 1.05;
   color: var(--color-ink);
 }
