@@ -7,6 +7,16 @@ export const metadata: Metadata = {
   description:
     "Front-end developer portfolio: design, WordPress, React, and production sites.",
   icons: { icon: "/images/icon.png" },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
 };
 
 export const viewport = {
