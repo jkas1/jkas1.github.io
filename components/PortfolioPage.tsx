@@ -267,9 +267,6 @@ export function PortfolioPage() {
                 >
                   LinkedIn ↗
                 </Link>
-                <Link className="nl" href="https://github.com/jkas1" target="_blank" rel="noopener noreferrer">
-                  GitHub ↗
-                </Link>
                 <Link
                   className="nl"
                   href="/static/Julie_Kasparian_Resume.pdf"
