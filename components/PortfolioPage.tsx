@@ -36,7 +36,7 @@ export function PortfolioPage() {
         </div>
       </div>
 
-      <header id="top" className="relative z-[1] overflow-hidden">
+      <header id="top" className="relative z-[1] overflow-visible">
         <a className="skip-link" href="#main">
           Skip to content
         </a>

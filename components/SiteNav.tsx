@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useId, useState } from "react";
-import { createPortal } from "react-dom";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { WRAP } from "@/lib/layout";
 
 type NavLink = {
@@ -19,57 +18,24 @@ const NAV_LINKS: NavLink[] = [
   { href: "#contact", label: "Contact", contact: true },
 ];
 
-/** Overlay nav through this width; inline nav from 768px (Tailwind `md`). */
 const MOBILE_NAV_MQ = "(max-width: 767px)";
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [mobileNav, setMobileNav] = useState(false);
-  const overlayId = useId();
+  const menuId = useId();
+  const menuRootRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
     const mq = window.matchMedia(MOBILE_NAV_MQ);
     const onChange = () => {
-      const matches = mq.matches;
-      setMobileNav(matches);
-      if (!matches) {
-        setOpen(false);
-        document.documentElement.classList.remove("nav-overlay-open");
-        document.body.classList.remove("nav-overlay-open");
-      }
+      if (!mq.matches) close();
     };
     onChange();
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
-  }, []);
-
-  const syncOverlayOpenClass = useCallback((enabled: boolean) => {
-    document.documentElement.classList.toggle("nav-overlay-open", enabled);
-    document.body.classList.toggle("nav-overlay-open", enabled);
-  }, []);
-
-  const openMenu = useCallback(() => {
-    if (!window.matchMedia(MOBILE_NAV_MQ).matches) return;
-    syncOverlayOpenClass(true);
-    setOpen(true);
-  }, [syncOverlayOpenClass]);
-
-  const close = useCallback(() => {
-    setOpen(false);
-    syncOverlayOpenClass(false);
-  }, [syncOverlayOpenClass]);
-
-  useEffect(
-    () => () => {
-      syncOverlayOpenClass(false);
-    },
-    [syncOverlayOpenClass],
-  );
+  }, [close]);
 
   useEffect(() => {
     if (!open) return;
@@ -80,9 +46,19 @@ export function SiteNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, close]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onPointer = (e: PointerEvent) => {
+      if (e.target instanceof Node && menuRootRef.current?.contains(e.target)) return;
+      close();
+    };
+    document.addEventListener("pointerdown", onPointer);
+    return () => document.removeEventListener("pointerdown", onPointer);
+  }, [open, close]);
+
   return (
     <nav
-      className="nav mono relative z-[2] py-5 sm:py-[26px] text-[11px] tracking-[0.2em] uppercase max-sm:text-[10px] max-sm:tracking-[0.14em]"
+      className="nav mono relative z-[30] py-5 sm:py-[26px] text-[11px] tracking-[0.2em] uppercase max-sm:text-[10px] max-sm:tracking-[0.14em]"
       aria-label="Site"
     >
       <div className={`${WRAP} flex items-center justify-between gap-4`}>
@@ -112,61 +88,52 @@ export function SiteNav() {
           )}
         </div>
 
-        <button
-          type="button"
-          className={`nav-menu-btn md:hidden ${open ? "nav-menu-btn--hidden" : ""}`}
-          aria-expanded={open}
-          aria-controls={overlayId}
-          aria-label="Open menu"
-          onClick={openMenu}
-        >
-          <span className="nav-menu-btn-icon" aria-hidden />
-        </button>
-      </div>
+        <div ref={menuRootRef} className="nav-mobile-menu relative md:hidden">
+          <button
+            type="button"
+            className="nav-menu-btn"
+            aria-expanded={open}
+            aria-controls={menuId}
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            <span
+              className={`nav-menu-btn-icon ${open ? "nav-menu-btn-icon--close" : ""}`}
+              aria-hidden
+            />
+          </button>
 
-      {mounted && mobileNav
-        ? createPortal(
-            <div
-              id={overlayId}
-              className={`nav-overlay ${open ? "nav-overlay--open" : ""}`}
-              aria-hidden={!open}
-              onClick={(e) => {
-                if (e.target === e.currentTarget) close();
-              }}
-            >
-              <div className="nav-overlay-top py-5 sm:py-[26px]">
-                <div className={`${WRAP} flex justify-end`}>
-                  <button
-                    type="button"
-                    className="nav-overlay-close"
-                    aria-label="Close menu"
+          <div
+            id={menuId}
+            className={`nav-dropdown ${open ? "nav-dropdown--open" : ""}`}
+            role="navigation"
+            aria-label="Mobile"
+            aria-hidden={!open}
+          >
+            <ul className="nav-dropdown-list">
+              {NAV_LINKS.map((link) => (
+                <li
+                  key={link.href}
+                  className={link.contact ? "nav-dropdown-item--contact" : undefined}
+                >
+                  <Link
+                    href={link.href}
+                    className={
+                      link.contact
+                        ? "nav-dropdown-link nav-dropdown-link--contact"
+                        : "nav-dropdown-link"
+                    }
                     onClick={close}
+                    tabIndex={open ? undefined : -1}
                   >
-                    <span className="nav-menu-btn-icon nav-menu-btn-icon--close" aria-hidden />
-                  </button>
-                </div>
-              </div>
-              <nav className="nav-overlay-panel" aria-label="Mobile">
-                <ul className="nav-overlay-list">
-                  {NAV_LINKS.map((link) => (
-                    <li key={link.href} className={link.contact ? "nav-overlay-item--contact" : undefined}>
-                      <Link
-                        href={link.href}
-                        className={
-                          link.contact ? "nav-overlay-link nav-overlay-link--contact" : "nav-overlay-link"
-                        }
-                        onClick={close}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>,
-            document.body,
-          )
-        : null}
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 }
