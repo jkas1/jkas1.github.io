@@ -54,7 +54,7 @@ export function PortfolioPage() {
             <div className="relative mx-auto w-full max-w-[980px] text-center">
               <StarBorderHero />
               <div className="relative z-[1] min-w-0 px-1">
-                <h1 className="disp hero-title m-0 text-[clamp(42px,11vw,110px)] leading-[0.88] tracking-[-0.01em] text-ink max-sm:leading-[0.9]">
+                <h1 className="disp hero-title m-0 leading-[0.88] tracking-[-0.01em] text-ink max-sm:leading-[0.9]">
                   <span className="block">Julie Kasparian</span>
                 </h1>
                 <p className="hero-role heading-glow">Front-end Developer</p>
@@ -250,15 +250,15 @@ export function PortfolioPage() {
               <p className="mx-auto max-w-[480px] px-2 text-base leading-relaxed text-muted sm:text-lg">
                 {`Have an opportunity in mind? I'd love to hear about it.`}
               </p>
-              <p className="mx-auto mt-8 max-w-[min(100%,34rem)] px-1">
+              <p className="mx-auto mt-4 max-w-[min(100%,34rem)] px-1 sm:mt-8">
                 <a
-                  className="bigmail disp max-w-full break-all text-[clamp(15px,2.65vw,34px)] tracking-[0.04em] sm:break-normal"
+                  className="bigmail disp max-w-full break-all tracking-[0.04em] sm:break-normal"
                   href="mailto:juliekasparian@gmail.com"
                 >
                   juliekasparian@gmail.com ↗
                 </a>
               </p>
-              <div className="mono mt-8 flex flex-wrap justify-center gap-x-5 gap-y-3 text-[11px] tracking-[0.18em] uppercase sm:mt-9 sm:gap-x-8 sm:text-[12px] sm:tracking-[0.2em]">
+              <div className="mono mt-4 flex flex-wrap justify-center gap-x-5 gap-y-3 text-[11px] tracking-[0.18em] uppercase sm:mt-9 sm:gap-x-8 sm:text-[12px] sm:tracking-[0.2em]">
                 <Link
                   className="nl"
                   href="https://linkedin.com/in/juliekasparian"

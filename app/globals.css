@@ -461,8 +461,9 @@ h3.disp,
 }
 
 .hero-title {
-  @apply m-0 text-[clamp(38px,9.5vw,112px)] leading-[0.9] tracking-[-0.01em] text-ink;
+  @apply m-0 leading-[0.9] tracking-[-0.01em] text-ink;
   font-family: var(--font-display);
+  font-size: clamp(42px, 11vw, 110px);
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -490,6 +491,27 @@ h3.disp,
   font-family: var(--font-display);
   font-weight: 400;
   text-transform: uppercase;
+}
+
+/* Tablet + phone: section titles read larger (desktop `lg:` unchanged). */
+@media (max-width: 1024px) {
+  .section-title,
+  .section-heading,
+  .contact-title {
+    font-size: clamp(42px, 8.5vw, 90px);
+  }
+
+  .hero-title {
+    font-size: clamp(52px, 13vw, 112px);
+  }
+
+  .hero-role {
+    font-size: clamp(48px, 7.75vw, 84px);
+  }
+
+  #work .work-title {
+    font-size: clamp(36px, 5.75vw, 48px);
+  }
 }
 
 .experience-index {
@@ -530,6 +552,7 @@ h3.disp,
 
 .bigmail {
   @apply relative inline-block border-b-0 pb-1.5 text-ice no-underline transition-[text-shadow] duration-300;
+  font-size: clamp(18px, 2.65vw, 34px);
 }
 .bigmail::after {
   content: "";
