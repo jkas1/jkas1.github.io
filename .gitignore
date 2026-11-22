@@ -1,6 +1,3 @@
-.agents/
-/assets/
-.taste-skill/
 node_modules/
 .next/
 out/

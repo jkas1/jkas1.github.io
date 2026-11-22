@@ -14,7 +14,7 @@ export const projects = [
     title: "Museum of Ancient Arts",
     desc: "A fully customized website for a fictional museum, built with WordPress Full Site Editing and custom collection management.",
     builtWith: ["WordPress", "PHP", "JavaScript", "HTML", "CSS"] as const,
-    secondaryLink: { href: "https://github.com/jkas1/museum-of-ancient-arts", label: "GitHub" },
+    secondaryLink: { href: "https://gitshare.me/repo/6be35562-f100-4c8b-8a49-d3c14ff0beaa", label: "GitHub" },
   },
   {
     href: "https://travelbook-b5hc.onrender.com/",
@@ -24,7 +24,7 @@ export const projects = [
     title: "Travelbook",
     desc: "An interactive travel discovery experience where users can explore 30 countries, filter destinations, save favorites, and browse detailed country guides with photography, live weather, and interactive maps.",
     builtWith: ["React", "TypeScript", "JavaScript", "Vite", "React Router", "Mapbox GL","styled-components"] as const,
-    secondaryLink: { href: "https://github.com/jkas1/travelbook", label: "GitHub" },
+    secondaryLink: { href: "https://gitshare.me/repo/c43cf257-2039-499e-b2d3-19e9605623a5", label: "GitHub" },
   },
   {
     href: "https://pot-it.onrender.com/",
@@ -34,7 +34,7 @@ export const projects = [
     title: "Pot It",
     desc: "A full-stack storefront for a fictional plant shop, featuring a browsable product catalog, category filtering, product details, cart management, and a simulated checkout experience.",
     builtWith: ["Angular", "TypeScript", "Node.js", "Express", "MySQL"] as const,
-    secondaryLink: { href: "https://github.com/jkas1/pot-it", label: "GitHub" },
+    secondaryLink: { href: "https://gitshare.me/repo/1c4e1cc2-b5dd-4438-8d62-9ba74fe0e4f9", label: "GitHub" },
   },
   {
     href: "",
@@ -44,7 +44,7 @@ export const projects = [
     title: "Cross-Browser Visual Tester",
     desc: "A browser testing tool that captures and compares full-page screenshots across Chrome, Firefox, and Safari. It supports saved visual baselines, configurable pixel-difference thresholds, automated accessibility checks, and downloadable HTML reports.",
     builtWith: ["Vue", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Playwright", "Vitest", "pixelmatch", "axe-core"] as const,
-    secondaryLink: { href: "https://github.com/jkas1/cross-browser-visual-tester/", label: "GitHub" },
+    secondaryLink: { href: "https://gitshare.me/repo/41b60260-699a-4692-980f-036747f1c64f", label: "GitHub" },
   },
 ] as const;
 
@@ -52,13 +52,13 @@ export const moaaGutenbergBlocks = [
   {
     name: "Visual Accordion Block",
     desc: "Interactive image accordion with customizable panels and support for dynamically linking content.",
-    github: "https://github.com/jkas1/visual-accordion-block",
+    github: "https://gitshare.me/repo/ed188f31-2d15-4fd9-ac3e-a07d8d282ad1",
     live: "https://moaa.xo.je/#featured-art",
   },
   {
     name: "Item Browser Block",
     desc: "Filterable content browser with index and grid layouts, supporting custom post types and taxonomies.",
-    github: "https://github.com/jkas1/item-browser-block",
+    github: "https://gitshare.me/repo/c3044dba-5332-4da7-b7bd-97e0cbf046a4",
     live: "https://moaa.xo.je/#the-collection",
   },
 ] as const;

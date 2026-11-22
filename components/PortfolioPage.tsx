@@ -272,11 +272,11 @@ export function PortfolioPage() {
                 </Link>
                 <Link
                   className="nl"
-                  href="/static/Julie%20Kasparian%20Resume.pdf"
+                  href="/static/Julie_Kasparian_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Download resume ↗
+                  Resume ↗
                 </Link>
               </div>
             </div>
