@@ -158,7 +158,7 @@ export function ProjectsSection() {
             </h2>
           </div>
           <p className="work-intro relative z-[1] lg:shrink-0 lg:text-right">
-            Independent projects exploring modern frontend and full-stack development
+            Independent projects exploring modern front-end and full-stack development
           </p>
         </div>
 

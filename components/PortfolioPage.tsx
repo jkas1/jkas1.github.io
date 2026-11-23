@@ -118,16 +118,13 @@ export function PortfolioPage() {
               </h2>
               <div className="flex flex-col gap-5 text-[17px] leading-[1.75] text-muted lg:gap-6 lg:leading-[1.8]">
                 <p className="m-0">
-                  {`I'm a front-end developer with a Bachelor's degree in Computer Science from California State University, Los Angeles.`}
+                  {`I'm a Los Angeles-based front-end developer with a Bachelor's degree in Computer Science from California State University, Los Angeles.`}
                 </p>
                 <p className="m-0">
-                  Over five years at an internet marketing agency, I worked across the website development
-                  process: from translating design concepts into responsive layouts and prototypes to building
-                  custom WordPress themes and Gutenberg blocks. I also focused on improving website
-                  accessibility, SEO, and performance through technical audits and optimization.
+                  {`For the past five years, I've worked at an internet marketing agency, where I contributed across the entire website development process. I translated design concepts into responsive layouts and prototypes, and built custom WordPress themes and Gutenberg blocks. I also improved accessibility, SEO, and performance through technical audits and targeted optimizations.`}
                 </p>
                 <p className="m-0">
-                  {`Beyond my professional WordPress experience, I've continued expanding my front-end development skills through independent projects with React, TypeScript, and Angular, exploring modern frameworks and building interactive web applications.`}
+                  {`Beyond my professional WordPress experience, I've continued expanding my skills through independent projects with React, TypeScript, Vue, and Angular, building interactive web experiences and exploring modern front-end technologies.`}
                 </p>
               </div>
             </div>

@@ -1,7 +1,7 @@
 export const stats = [
   { title: "5 Years", label: "Professional Experience" },
   { title: "WordPress Expertise", label: "Custom Themes & Gutenberg Blocks" },
-  { title: "Modern Frontend", label: "React, TypeScript & Angular" },
+  { title: "Modern Frontend", label: "React, TypeScript, Vue & Angular" },
   { title: "Design to Code", label: "Figma, Responsive UI & UX" },
 ] as const;
 
